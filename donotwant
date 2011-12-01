@@ -1,0 +1,16 @@
+#!/bin/bash
+
+case $(distro_check.sh) in
+"Arch")
+    yaourt -Rs $1
+    ;;
+"Debian" | "Ubuntu")
+    sudo aptitude purge $1
+    ;;
+"Fedora")
+    sudo yum erase $1
+    ;;
+*)
+    echo "Sorry, I don't know that one."
+    ;;
+esac

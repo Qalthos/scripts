@@ -1,0 +1,17 @@
+#!/bin/bash
+
+case $(distro_check.sh) in
+"Arch")
+    yaourt -Syua --devel
+    ;;
+"Debian" | "Ubuntu")
+    sudo aptitude update
+    sudo aptitude upgrade --full-resolver
+    ;;
+"Fedora")
+    sudo yum update
+    ;;
+*)
+    echo "Sorry, I don't know how to update "$(distro_check.sh)"."
+    ;;
+esac
