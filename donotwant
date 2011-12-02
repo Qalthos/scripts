@@ -2,13 +2,13 @@
 
 case $(distro_check.sh) in
 "Arch")
-    yaourt -Rs $1
+    yaourt -Rs $@
     ;;
 "Debian" | "Ubuntu")
-    sudo aptitude purge $1
+    sudo aptitude purge $@
     ;;
 "Fedora")
-    sudo yum erase $1
+    sudo yum erase $@
     ;;
 *)
     echo "Sorry, I don't know that one."
