@@ -7,11 +7,7 @@ case ${PACKAGEMGR} in
         ${PACKAGEMGR} -Ss $1
         RETVAL=$?
         ;;
-    "aptitude")
-        ${PACAKGEMGR} search $1
-        RETVAL=$?
-        ;;
-    "yum")
+    "aptitude" | "yum")
         ${PACKAGEMGR} search $1
         RETVAL=$?
         ;;

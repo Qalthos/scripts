@@ -14,7 +14,7 @@ case ${PACKAGEMGR} in
         RETVAL=$?
         ;;
     "aptitude")
-        ${PACAKGEMGR} perge $1
+        ${PACKAGEMGR} purge $1
         RETVAL=$?
         ;;
     "yum")

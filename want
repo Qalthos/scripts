@@ -13,11 +13,7 @@ case ${PACKAGEMGR} in
         ${PACKAGEMGR} -S $1
         RETVAL=$?
         ;;
-    "aptitude")
-        ${PACAKGEMGR} install $1
-        RETVAL=$?
-        ;;
-    "yum")
+    "aptitude" | "yum")
         ${PACKAGEMGR} install $1
         RETVAL=$?
         ;;
