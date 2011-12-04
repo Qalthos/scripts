@@ -1,17 +1,37 @@
 #!/bin/bash
+source ./distro_check.sh
+distro_check
 
-case $(distro_check.sh) in
-"Arch")
-    yaourt -Syua --devel
-    ;;
-"Debian" | "Ubuntu")
-    sudo aptitude update
-    sudo aptitude upgrade --full-resolver
-    ;;
-"Fedora")
-    sudo yum update
-    ;;
-*)
-    echo "Sorry, I don't know how to update "$(distro_check.sh)"."
-    ;;
+if [ $EUID -ne 0 ]; then
+    echo "update: I needz root plz."
+    exit 1;
+fi;
+
+RETVAL=0
+case ${PACKAGEMGR} in
+    "yaourt")
+        ${PACKAGEMGR} -Syua --devel
+        RETVAL=$?
+        ;;
+    "aptitude")
+        ${PACAKGEMGR} update
+        if [ $? -eq 0 ]; then
+            ${PACKAGEMGR} upgrade --full-resolver
+        fi;
+        RETVAL=$?
+        ;;
+    "yum")
+        ${PACKAGEMGR} update
+        RETVAL=$?
+        ;;
+    "emerge")
+        echo "You're on your own here buddy..."
+        RETVAL=1
+        ;;
+    *)
+        echo "Sorry, I don't know that one."
+        RETVAL=1
+        ;;
 esac
+
+exit ${RETVAL}
