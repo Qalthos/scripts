@@ -1,16 +1,34 @@
 #!/bin/bash
+source ./distro_check.sh
+distro_check
 
-case $(distro_check.sh) in
-"Arch")
-    yaourt -S $@
-    ;;
-"Debian" | "Ubuntu")
-    sudo aptitude install $@
-    ;;
-"Fedora")
-    sudo yum install $@
-    ;;
-*)
-    echo "Sorry, I don't know that one."
-    ;;
+if [ $EUID -ne 0 ]; then
+    echo "want: I needz root plz."
+    exit 1;
+fi;
+
+RETVAL=0
+case ${PACKAGEMGR} in
+    "yaourt")
+        ${PACKAGEMGR} -S $1
+        RETVAL=$?
+        ;;
+    "aptitude")
+        ${PACAKGEMGR} install $1
+        RETVAL=$?
+        ;;
+    "yum")
+        ${PACKAGEMGR} install $1
+        RETVAL=$?
+        ;;
+    "emerge")
+        ${PACKAGEMGR} $1
+        RETVAL=$?
+        ;;
+    *)
+        echo "Sorry, I don't know that one."
+        RETVAL=1
+        ;;
 esac
+
+exit ${RETVAL}
