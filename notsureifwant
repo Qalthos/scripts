@@ -1,0 +1,16 @@
+#!/bin/bash
+
+case $(distro_check.sh) in
+"Arch")
+    yaourt -Qi $1
+    ;;
+"Debian" | "Ubuntu")
+    sudo aptitude show $1
+    ;;
+"Fedora")
+    sudo yum info $1
+    ;;
+*)
+    echo "Sorry, I don't know that one."
+    ;;
+esac
