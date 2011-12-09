@@ -5,10 +5,10 @@ case $(distro_check.sh) in
     yaourt -Qi $1
     ;;
 "Debian" | "Ubuntu")
-    sudo aptitude show $1
+    aptitude show $1
     ;;
 "Fedora")
-    sudo yum info $1
+    yum info $1
     ;;
 *)
     echo "Sorry, I don't know that one."
