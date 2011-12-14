@@ -1,0 +1,10 @@
+#!/bin/bash
+
+case $(distro_check.sh) in
+"Arch")
+    sudo /etc/rc.d/$1 start
+    ;;
+*)
+    echo "Sorry, I don't know that one."
+    ;;
+esac
