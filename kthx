@@ -12,6 +12,9 @@ case $(distro_check.sh) in
 "Arch")
     sudo /etc/rc.d/$target $action
     ;;
+"Ubuntu")
+    sudo service $target $action
+    ;;
 *)
     echo "Sorry, I don't know that one."
     ;;
