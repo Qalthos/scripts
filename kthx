@@ -1,8 +1,16 @@
 #!/bin/bash
 
+target=$1
+action='start'
+
+if [ $target == 'bai' ]; then
+    target=$2
+    action='start'
+fi
+
 case $(distro_check.sh) in
 "Arch")
-    sudo /etc/rc.d/$1 start
+    sudo /etc/rc.d/$target $action
     ;;
 *)
     echo "Sorry, I don't know that one."
