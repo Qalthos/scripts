@@ -5,7 +5,7 @@ action='start'
 
 if [ $target == 'bai' ]; then
     target=$2
-    action='start'
+    action='stop'
 fi
 
 case $(distro_check.sh) in
