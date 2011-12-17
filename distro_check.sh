@@ -9,6 +9,9 @@ case $(uname -r) in
 *-generic)
     echo "Ubuntu"
     ;;
+*-gentoo)
+    echo "Gentoo"
+    ;;
 *x86_64)
     echo "Fedora"
     ;;
