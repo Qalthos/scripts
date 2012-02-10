@@ -9,7 +9,7 @@ case $(uname -r) in
 *-generic)
     echo "Ubuntu"
     ;;
-*-gentoo)
+*-gentoo|*-gentoo-r*)
     echo "Gentoo"
     ;;
 *x86_64)
