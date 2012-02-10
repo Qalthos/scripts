@@ -3,7 +3,7 @@ case $(uname -r) in
 *ARCH)
     echo "Arch"
     ;;
-*-amd64)
+*-amd64 | *-686-pae)
     echo "Debian"
     ;;
 *-generic)
