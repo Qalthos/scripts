@@ -7,6 +7,9 @@ case $(distro_check.sh) in
 "Debian" | "Ubuntu")
     aptitude search $1
     ;;
+"Gentoo")
+    eix $1
+    ;;
 "Fedora")
     yum search $1
     ;;

@@ -15,6 +15,9 @@ case $(distro_check.sh) in
 "Ubuntu")
     sudo service $target $action
     ;;
+"Gentoo")
+    sudo /etc/init.d/$target $action
+    ;;
 *)
     echo "Sorry, I don't know that one."
     ;;

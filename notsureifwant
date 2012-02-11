@@ -7,6 +7,9 @@ case $(distro_check.sh) in
 "Debian" | "Ubuntu")
     aptitude show $1
     ;;
+"Gentoo")
+    emerge -pv $1
+    ;;
 "Fedora")
     yum info $1
     ;;

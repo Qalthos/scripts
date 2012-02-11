@@ -7,6 +7,9 @@ case $(distro_check.sh) in
 "Debian" | "Ubuntu")
     sudo aptitude purge $@
     ;;
+"Gentoo")
+    sudo emerge --unmerge --ask $@
+    ;;
 "Fedora")
     sudo yum erase $@
     ;;
