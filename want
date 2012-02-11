@@ -7,6 +7,9 @@ case $(distro_check.sh) in
 "Debian" | "Ubuntu")
     sudo aptitude install $@
     ;;
+"Gentoo")
+    sudo emerge -av $@
+    ;;
 "Fedora")
     sudo yum install $@
     ;;

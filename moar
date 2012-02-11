@@ -8,6 +8,10 @@ case $(distro_check.sh) in
     sudo aptitude update
     sudo aptitude upgrade --full-resolver
     ;;
+"Gentoo")
+    sudo emerge --sync && sudo layman -S && sudo eix-update
+    sudo emerge --ask --verbose --update --newuse --deep --with-bdeps=y world
+    ;;
 "Fedora")
     sudo yum update
     ;;
