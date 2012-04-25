@@ -2,23 +2,25 @@
 
 if [ -e "/etc/gentoo-release" ]
 then
-     echo "Gentoo"
-fi
+    echo "Gentoo"
 
-case $(uname -r) in
-*ARCH)
-    echo "Arch"
-    ;;
-*-amd64 | *-686-pae)
-    echo "Debian"
-    ;;
-*-generic)
-    echo "Ubuntu"
-    ;;
-*x86_64)
-    echo "Fedora"
-    ;;
-*)
-    echo $(uname -r)
-    ;;
-esac
+else
+    uname=$(uname -r)
+    case $uname in
+        *ARCH)
+            echo "Arch"
+            ;;
+        *-amd64 | *-686-pae)
+            echo "Debian"
+            ;;
+        *-generic)
+            echo "Ubuntu"
+            ;;
+        *x86_64)
+            echo "Fedora"
+            ;;
+        *)
+            echo $uname
+            ;;
+    esac
+fi
