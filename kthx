@@ -18,7 +18,7 @@ case $(distro_check.sh) in
 "Ubuntu")
     sudo service $target $action
     ;;
-"Gentoo")
+"Gentoo" | "Debian")
     sudo /etc/init.d/$target $action
     ;;
 *)
