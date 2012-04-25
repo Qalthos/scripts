@@ -1,4 +1,10 @@
 #!/bin/bash
+
+if [ -e "/etc/gentoo-release" ]
+then
+     echo "Gentoo"
+fi
+
 case $(uname -r) in
 *ARCH)
     echo "Arch"
@@ -8,9 +14,6 @@ case $(uname -r) in
     ;;
 *-generic)
     echo "Ubuntu"
-    ;;
-*-gentoo|*-gentoo-r*)
-    echo "Gentoo"
     ;;
 *x86_64)
     echo "Fedora"
