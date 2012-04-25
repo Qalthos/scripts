@@ -1,13 +1,17 @@
 #!/bin/bash
 
-if [ -e "/etc/gentoo-release" ]
+if [ -e "/etc/redhat-release" ]
+then
+    # Assume RH is Fedora-compatible
+    echo "Fedora"
+elif [ -e "/etc/gentoo-release" ]
 then
     echo "Gentoo"
 
 else
     lsb=$(lsb_release -si)
     case $lsb in
-        Ubuntu)
+        Ubuntu | Fedora)
             echo $lsb
             ;;
         *)
@@ -18,9 +22,6 @@ else
                     ;;
                 *-amd64 | *-686-pae)
                     echo "Debian"
-                    ;;
-                *x86_64)
-                    echo "Fedora"
                     ;;
                 *)
                     echo $uname
