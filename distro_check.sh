@@ -13,22 +13,14 @@ then
 else
     lsb=$(lsb_release -si)
     case $lsb in
-        Ubuntu | Fedora)
+        Ubuntu | Fedora | Debian)
             echo $lsb
             ;;
         archlinux)
             echo "Arch"
             ;;
         *)
-            uname=$(uname -r)
-            case $uname in
-                *-amd64 | *-686-pae)
-                    echo "Debian"
-                    ;;
-                *)
-                    echo $uname
-                    ;;
-            esac
+            echo $(uname -r)
             ;;
     esac
 fi
