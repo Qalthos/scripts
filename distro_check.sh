@@ -10,7 +10,6 @@ then
 elif [ -e "/etc/gentoo-release" ]
 then
     echo "Gentoo"
-
 else
     lsb=$(lsb_release -si)
     case $lsb in
