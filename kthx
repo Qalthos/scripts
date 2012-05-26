@@ -22,6 +22,6 @@ case $(distro_check.sh) in
     sudo /etc/init.d/$target $action
     ;;
 *)
-    echo "Sorry, I don't know that one."
+    echo "Sorry, I don't know how to run services on $(distro_check.sh)."
     ;;
 esac

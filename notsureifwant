@@ -14,6 +14,6 @@ case $(distro_check.sh) in
     yum info $1
     ;;
 *)
-    echo "Sorry, I don't know that one."
+    echo "Sorry, I don't know how to inspect packages on $(distro_check.sh)."
     ;;
 esac

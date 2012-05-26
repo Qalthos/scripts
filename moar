@@ -16,6 +16,6 @@ case $(distro_check.sh) in
     sudo yum update
     ;;
 *)
-    echo "Sorry, I don't know how to update "$(distro_check.sh)"."
+    echo "Sorry, I don't know how to update $(distro_check.sh)."
     ;;
 esac
