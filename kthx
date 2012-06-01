@@ -13,7 +13,7 @@ fi
 
 case $(distro_check.sh) in
 "Arch")
-    sudo /etc/rc.d/$target $action
+    sudo rc.d $action $target
     ;;
 "Ubuntu")
     sudo service $target $action
