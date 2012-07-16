@@ -1,21 +1,21 @@
 #!/bin/bash
 
-case $(distro_check.sh) in
+case $DISTRO in
 "Arch")
-    yaourt -Syua --devel
+    $PKGMGR -Syua --devel
     ;;
 "Debian" | "Ubuntu")
-    sudo aptitude update
-    sudo aptitude upgrade --full-resolver
+    sudo $PKGMGR update
+    sudo $PKGMGR upgrade --full-resolver
     ;;
 "Gentoo")
-    sudo emerge --sync && sudo layman -S && sudo eix-update
-    sudo emerge --ask --verbose --update --newuse --deep --with-bdeps=y world
+    sudo $PKGMGR --sync && sudo layman -S && sudo eix-update
+    sudo $PKGMGR --ask --verbose --update --newuse --deep --with-bdeps=y world
     ;;
 "Fedora")
-    sudo yum update
+    sudo $PKGMGR update
     ;;
 *)
-    echo "Sorry, I don't know how to update $(distro_check.sh)."
+    echo "Sorry, I don't know how to update $DISTRO."
     ;;
 esac

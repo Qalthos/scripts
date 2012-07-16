@@ -1,19 +1,16 @@
 #!/bin/bash
 
-case $(distro_check.sh) in
+case $DISTRO in
 "Arch")
-    yaourt -S $@
+    $PKGMGR -S $@
     ;;
-"Debian" | "Ubuntu")
-    sudo aptitude install $@
+"Debian" | "Ubuntu" | "Fedora")
+    sudo $PKGMGR install $@
     ;;
 "Gentoo")
-    sudo emerge -av $@
-    ;;
-"Fedora")
-    sudo yum install $@
+    sudo $PKGMGR -av $@
     ;;
 *)
-    echo "Sorry, I don't know how to install packages on $(distro_check.sh)."
+    echo "Sorry, I don't know how to install packages on $DISTRO."
     ;;
 esac

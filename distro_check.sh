@@ -1,26 +1,23 @@
 #!/bin/bash
+DISTRO='Unknown'
+PKGMGR='Unknown'
 
 if [ -e "/etc/arch-release" ]
 then
-    echo "Arch"
+    DISTRO='Arch'
+    PKGMGR='yaourt'
 elif [ -e "/etc/redhat-release" ]
 then
-    # Assume RH is Fedora-compatible
-    echo "Fedora"
+    # Assume RH is Fedora
+    DISTRO='Fedora'
+    PKGMGR='yum'
 elif [ -e "/etc/gentoo-release" ]
 then
-    echo "Gentoo"
-else
-    lsb=$(lsb_release -si)
-    case $lsb in
-        Ubuntu | Fedora | Debian)
-            echo $lsb
-            ;;
-        archlinux)
-            echo "Arch"
-            ;;
-        *)
-            echo $(uname -r)
-            ;;
-    esac
+    DISTRO='Gentoo'
+    PKGMGR='emerge'
+elif [ -e '/etc/debian_version' ]
+then
+    DISTRO=$(lsb_release -si)
+    PKGMGR='aptitude'
 fi
+export DISTRO PKGMGR

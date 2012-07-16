@@ -11,7 +11,7 @@ elif [ $target == 'brb' ]; then
     action='restart'
 fi
 
-case $(distro_check.sh) in
+case $DISTRO in
 "Arch")
     sudo rc.d $action $target
     ;;
@@ -22,6 +22,6 @@ case $(distro_check.sh) in
     sudo /etc/init.d/$target $action
     ;;
 *)
-    echo "Sorry, I don't know how to run services on $(distro_check.sh)."
+    echo "Sorry, I don't know how to run services on $DISTRO."
     ;;
 esac

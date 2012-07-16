@@ -1,19 +1,19 @@
 #!/bin/bash
 
-case $(distro_check.sh) in
+case $DISTRO in
 "Arch")
-    yaourt -Rs $@
+    $PKGMGR -Rs $@
     ;;
 "Debian" | "Ubuntu")
-    sudo aptitude purge $@
+    sudo $PKGMGR purge $@
     ;;
 "Gentoo")
-    sudo emerge --unmerge --ask $@
+    sudo $PKGMGR --unmerge --ask $@
     ;;
 "Fedora")
-    sudo yum erase $@
+    sudo $PKGMGR erase $@
     ;;
 *)
-    echo "Sorry, I don't know how to remove packages on $(distro_check.sh)."
+    echo "Sorry, I don't know how to remove packages on $DISTRO."
     ;;
 esac

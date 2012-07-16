@@ -1,19 +1,19 @@
 #!/bin/bash
 
-case $(distro_check.sh) in
+case $DISTRO in
 "Arch")
-    yaourt -Qi $1
+    $PKGMGR -Qi $1
     ;;
 "Debian" | "Ubuntu")
-    aptitude show $1
+    $PKGMGR show $1
     ;;
 "Gentoo")
-    emerge -pv $1
+    $PKGMGR -pv $1
     ;;
 "Fedora")
-    yum info $1
+    $PKGMGR info $1
     ;;
 *)
-    echo "Sorry, I don't know how to inspect packages on $(distro_check.sh)."
+    echo "Sorry, I don't know how to inspect packages on $DISTRO."
     ;;
 esac
