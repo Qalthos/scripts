@@ -5,12 +5,22 @@ PKGMGR='Unknown'
 if [ -e "/etc/arch-release" ]
 then
     DISTRO='Arch'
-    PKGMGR='yaourt'
+    if [ -e "/usr/bin/yaourt" ]
+    then
+        PKGMGR='yaourt'
+    else
+        PKGMGR='pacman'
+    fi
 elif [ -e "/etc/redhat-release" ]
 then
     # Assume RH is Fedora
     DISTRO='Fedora'
-    PKGMGR='yum'
+    if [ -e "/usr/bin/dnf" ]
+    then
+        PKGMGR='dnf'
+    else
+        PKGMGR='yum'
+    fi
 elif [ -e "/etc/gentoo-release" ]
 then
     DISTRO='Gentoo'
@@ -18,6 +28,11 @@ then
 elif [ -e '/etc/debian_version' ]
 then
     DISTRO=$(lsb_release -si)
-    PKGMGR='aptitude'
+    if [ -e "/usr/bin/aptitude" ]
+    then
+        PKGMGR='aptitude'
+    else
+        PKGMGR='apt-get'
+    fi
 fi
 export DISTRO PKGMGR
