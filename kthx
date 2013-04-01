@@ -12,8 +12,8 @@ elif [ $target == 'brb' ]; then
 fi
 
 case $DISTRO in
-"Arch")
-    sudo rc.d $action $target
+"Arch" | "Fedora")
+    sudo systemctl $action $target
     ;;
 "Ubuntu")
     sudo service $target $action
