@@ -15,7 +15,7 @@ case $DISTRO in
 "Arch" | "Fedora")
     sudo systemctl $action $target
     ;;
-"Ubuntu")
+"Ubuntu" | "LinuxMint")
     sudo service $target $action
     ;;
 "Gentoo" | "Debian")

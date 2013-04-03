@@ -4,7 +4,7 @@ case $DISTRO in
 "Arch")
     $PKGMGR -Ss $1
     ;;
-"Debian" | "Ubuntu")
+"Debian" | "Ubuntu" | "LinuxMint")
     $PKGMGR search $1
     ;;
 "Gentoo")

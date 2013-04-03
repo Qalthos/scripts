@@ -4,7 +4,7 @@ case $DISTRO in
 "Arch")
     $PKGMGR -S $@
     ;;
-"Debian" | "Ubuntu" | "Fedora")
+"Debian" | "Ubuntu" | "Fedora" | "LinuxMint")
     sudo $PKGMGR install $@
     ;;
 "Gentoo")
