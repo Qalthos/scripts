@@ -4,7 +4,7 @@ case $DISTRO in
 "Arch")
     $PKGMGR -Rs $@
     ;;
-"Debian" | "Ubuntu")
+"Debian" | "Ubuntu" | "LinuxMint")
     sudo $PKGMGR purge $@
     ;;
 "Gentoo")
