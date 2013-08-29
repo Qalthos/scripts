@@ -6,7 +6,7 @@ case $DISTRO in
     ;;
 "Debian" | "Ubuntu" | "LinuxMint")
     sudo $PKGMGR update
-    sudo $PKGMGR upgrade --full-resolver
+    sudo $PKGMGR upgrade --full-resolver $@
     ;;
 "Gentoo")
     sudo $PKGMGR --sync && sudo layman -S && sudo eix-update
