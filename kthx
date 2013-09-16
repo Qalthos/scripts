@@ -3,12 +3,25 @@
 target=$1
 action='start'
 
-if [ $target == 'bai' ]; then
+if [ $2 ]; then
     target=$2
-    action='stop'
-elif [ $target == 'brb' ]; then
-    target=$2
-    action='restart'
+    case $1 in
+    "bai")
+        action='stop'
+        ;;
+    "brb")
+        action='restart'
+        ;;
+    'on')
+        action='enable'
+        ;;
+    'off')
+        action='disable'
+        ;;
+    *)
+        action=$target
+        ;;
+    esac
 fi
 
 case $DISTRO in
