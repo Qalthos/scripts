@@ -1,5 +1,5 @@
-This is a collection of scripts for use in a linux-based system to
-handle package management. It is also very silly.
+This is a collection of scripts for use in a Linux-based (or OSX, or Cygwin)
+system to handle package management. It is also very silly.
 
 To use, clone the repository somewhere and add it to your path (~/scripts works fine). Then, source distro_check.sh, and you can start using the scripts::
 
