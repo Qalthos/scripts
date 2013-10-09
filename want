@@ -7,6 +7,9 @@ case $DISTRO in
 "Debian" | "Ubuntu" | "Fedora" | "LinuxMint")
     sudo $PKGMGR install $@
     ;;
+"Darwin")
+	$PKGMGR install $@
+	;;
 "Gentoo")
     sudo $PKGMGR -av $@
     ;;
