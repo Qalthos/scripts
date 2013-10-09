@@ -8,7 +8,7 @@ case $DISTRO in
     sudo $PKGMGR purge $@
     ;;
 "Darwin")
-	$PKGMGR uninstall $1
+	$PKGMGR uninstall $@
 	;;
 "Gentoo")
     sudo $PKGMGR --unmerge --ask $@
