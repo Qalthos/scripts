@@ -34,5 +34,12 @@ then
     else
         PKGMGR='apt-get'
     fi
+elif [ `uname` = 'Darwin' ]
+then
+    DISTRO='Darwin'
+    if [ -e "/usr/local/bin/brew" ]
+    then
+    	PKGMGR='brew'
+    fi
 fi
 export DISTRO PKGMGR

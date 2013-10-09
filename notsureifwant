@@ -7,11 +7,11 @@ case $DISTRO in
 "Debian" | "Ubuntu" | "LinuxMint")
     $PKGMGR show $1
     ;;
+"Fedora" | "Darwin")
+    $PKGMGR info $1
+    ;;
 "Gentoo")
     $PKGMGR -pv $1
-    ;;
-"Fedora")
-    $PKGMGR info $1
     ;;
 *)
     echo "Sorry, I don't know how to inspect packages on $DISTRO."
