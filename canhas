@@ -4,14 +4,11 @@ case $DISTRO in
 "Arch")
     $PKGMGR -Ss $1
     ;;
-"Debian" | "Ubuntu" | "LinuxMint")
+"Debian" | "Ubuntu" | "Fedora" | "LinuxMint" | "Darwin")
     $PKGMGR search $1
     ;;
 "Gentoo")
     eix $1
-    ;;
-"Fedora")
-    $PKGMGR search $1
     ;;
 *)
     echo "Sorry, I don't know how to search on $DISTRO."

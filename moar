@@ -8,6 +8,9 @@ case $DISTRO in
     sudo $PKGMGR update
     sudo $PKGMGR upgrade --full-resolver $@
     ;;
+"Darwin")
+	$PKGMGR update && $PKGMGR upgrade
+	;;
 "Gentoo")
     sudo $PKGMGR --sync && sudo layman -S && sudo eix-update
     sudo $PKGMGR --ask --verbose --update --newuse --deep --with-bdeps=y world
