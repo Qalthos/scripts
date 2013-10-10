@@ -38,7 +38,7 @@ elif [ `uname` = 'Darwin' ]
 then
     if [ -e "/usr/local/bin/brew" ]
     then
-        DISTRO='Darwin'
+    	DISTRO='Darwin'
     	PKGMGR='brew'
     fi
 fi
