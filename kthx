@@ -19,7 +19,7 @@ if [ $2 ]; then
         action='disable'
         ;;
     *)
-        action=$target
+        action=$1
         ;;
     esac
 fi
