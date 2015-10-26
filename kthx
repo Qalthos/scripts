@@ -25,13 +25,13 @@ if [ $2 ]; then
 fi
 
 case $DISTRO in
-"Arch" | "Fedora")
+"Arch" | "Fedora" | "Debian")
     sudo systemctl $action $target
     ;;
 "Ubuntu" | "LinuxMint")
     sudo service $target $action
     ;;
-"Gentoo" | "Debian")
+"Gentoo")
     sudo /etc/init.d/$target $action
     ;;
 *)
