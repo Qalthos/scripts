@@ -8,6 +8,9 @@ then
     if [ -e "/usr/bin/yaourt" ]
     then
         PKGMGR='yaourt'
+    elif [ -e "/usr/bin/packer" ]
+    then
+        PKGMGR='packer'
     else
         PKGMGR='pacman'
     fi
