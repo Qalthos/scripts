@@ -6,7 +6,10 @@ PKG_OPTS=''
 if [ -e "/etc/arch-release" ]
 then
     DISTRO='Arch'
-    if [ -e "/usr/bin/yaourt" ]
+    if [ -e "/usr/bin/pacaur" ]
+    then
+        PKGMGR='pacaur'
+    elif [ -e "/usr/bin/yaourt" ]
     then
         PKGMGR='yaourt'
         PKG_OPTS='--aur --devel'
