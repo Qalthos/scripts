@@ -1,6 +1,7 @@
 #!/bin/bash
 DISTRO='Unknown'
 PKGMGR='Unknown'
+PKG_OPTS=''
 
 if [ -e "/etc/arch-release" ]
 then
@@ -8,6 +9,7 @@ then
     if [ -e "/usr/bin/yaourt" ]
     then
         PKGMGR='yaourt'
+        PKG_OPTS='--aur --devel'
     elif [ -e "/usr/bin/packer" ]
     then
         PKGMGR='packer'

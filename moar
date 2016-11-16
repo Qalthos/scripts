@@ -2,7 +2,7 @@
 
 case $DISTRO in
 "Arch")
-    $PKGMGR -Syua --devel $@
+    $PKGMGR -Syu $PKG_OPTS $@
     ;;
 "Debian" | "Ubuntu" | "LinuxMint")
     sudo $PKGMGR update
