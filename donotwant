@@ -16,6 +16,9 @@ case $DISTRO in
 "Fedora")
     sudo $PKGMGR erase $@
     ;;
+"openSUSE")
+    sudo $PKGMGR rm $@
+    ;;
 *)
     echo "Sorry, I don't know how to remove packages on $DISTRO."
     ;;

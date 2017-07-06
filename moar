@@ -18,6 +18,9 @@ case $DISTRO in
 "Fedora")
     sudo $PKGMGR update $@
     ;;
+"openSUSE")
+    sudo zypper up $@
+    ;;
 *)
     echo "Sorry, I don't know how to update $DISTRO."
     ;;
