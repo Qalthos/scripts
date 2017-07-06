@@ -35,6 +35,7 @@ case $DISTRO in
     sudo /etc/init.d/$target $action
     ;;
 *)
-    echo "Sorry, I don't know how to run services on $DISTRO."
+    echo "Just gonna try systemd"
+    sudo systemctl $action $target
     ;;
 esac
