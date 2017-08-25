@@ -45,9 +45,9 @@ then
             PKGMGR='apt-get'
         fi
     elif [ `lsb_release -si` = 'openSUSE' ]
+    then
         DISTRO=$(lsb_release -si)
         PKGMGR='zypper'
-    then
     fi
 elif [ `uname` = 'Darwin' ]
 then
