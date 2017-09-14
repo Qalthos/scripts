@@ -28,9 +28,6 @@ if [ $2 ]; then
 fi
 
 case $DISTRO in
-"Arch" | "Fedora" | "Debian")
-    sudo systemctl $action $target
-    ;;
 "Ubuntu" | "LinuxMint")
     sudo service $target $action
     ;;
@@ -38,7 +35,7 @@ case $DISTRO in
     sudo /etc/init.d/$target $action
     ;;
 *)
-    echo "Just gonna try systemd"
+    # Just gonna try systemd
     sudo systemctl $action $target
     ;;
 esac
