@@ -10,6 +10,9 @@ case $DISTRO in
 "Gentoo")
     eix $1
     ;;
+"VoidLinux")
+    xbps-query -Rs $1
+    ;;
 *)
     echo "Sorry, I don't know how to search on $DISTRO."
     ;;

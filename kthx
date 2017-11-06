@@ -34,6 +34,15 @@ case $DISTRO in
 "Gentoo")
     sudo /etc/init.d/$target $action
     ;;
+"VoidLinux")
+    # VoidLinux uses something called runit
+    # https://wiki.voidlinux.eu/Runit
+    declare -A sv_actions
+    sv_actions=([start]=up [stop]=down [restart]=restart [status]=status)
+    if [[ ${sv_actions[$action]} ]]; then
+        sudo sv ${sv_actions[$action]} $target
+    fi
+    ;;
 *)
     # Just gonna try systemd
     sudo systemctl $action $target

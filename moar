@@ -21,6 +21,9 @@ case $DISTRO in
 "openSUSE")
     sudo zypper up $@
     ;;
+"VoidLinux")
+    sudo $PKGMGR -Su
+    ;;
 *)
     echo "Sorry, I don't know how to update $DISTRO."
     ;;

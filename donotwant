@@ -19,6 +19,9 @@ case $DISTRO in
 "openSUSE")
     sudo $PKGMGR rm $@
     ;;
+"VoidLinux")
+    sudo xbps-remove -R $@
+    ;;
 *)
     echo "Sorry, I don't know how to remove packages on $DISTRO."
     ;;

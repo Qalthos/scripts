@@ -48,6 +48,12 @@ then
     then
         DISTRO=$(lsb_release -si)
         PKGMGR='zypper'
+    elif [ `lsb_release -si` = 'VoidLinux' ]
+    then
+        # VoidLinux is a little weird and uses different programs for each function
+	# https://wiki.voidlinux.eu/XBPS
+	DISTRO=$(lsb_release -si)
+	PKGMGR='xbps-install'
     fi
 elif [ `uname` = 'Darwin' ]
 then

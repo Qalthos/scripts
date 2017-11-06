@@ -13,6 +13,9 @@ case $DISTRO in
 "Gentoo")
     sudo $PKGMGR -av $@
     ;;
+"VoidLinux")
+    sudo xbps-install -S $@
+    ;;
 *)
     echo "Sorry, I don't know how to install packages on $DISTRO."
     ;;

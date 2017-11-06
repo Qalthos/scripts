@@ -13,6 +13,9 @@ case $DISTRO in
 "Gentoo")
     $PKGMGR -pv $1
     ;;
+"VoidLinux")
+    xbps-query $1
+    ;;
 *)
     echo "Sorry, I don't know how to inspect packages on $DISTRO."
     ;;
