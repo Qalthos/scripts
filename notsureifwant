@@ -11,7 +11,8 @@ case $DISTRO in
     $PKGMGR info $1
     ;;
 "Gentoo")
-    $PKGMGR -pv $1
+    #$PKGMGR -pv $1
+    equery u $1
     ;;
 "VoidLinux")
     xbps-query $1
