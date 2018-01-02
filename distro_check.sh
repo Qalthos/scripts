@@ -38,16 +38,19 @@ then
     elif [ -e '/etc/debian_version' ]
     then
         DISTRO=$(lsb_release -si)
-        if [ -e "/usr/bin/aptitude" ]
+        if [ -e "/usr/bin/apt" ]
+        then
+            PKGMGR='apt'
+        elif [ -e "/usr/bin/aptitude" ]
         then
             PKGMGR='aptitude'
         else
             PKGMGR='apt-get'
         fi
     elif [ `lsb_release -si` = 'openSUSE' ]
+    then
         DISTRO=$(lsb_release -si)
         PKGMGR='zypper'
-    then
     fi
 elif [ `uname` = 'Darwin' ]
 then
