@@ -8,16 +8,9 @@ then
     if [ -e "/etc/arch-release" ]
     then
         DISTRO='Arch'
-        if [ -e "/usr/bin/pacaur" ]
+        if [ -e "/usr/bin/yay" ]
         then
-            PKGMGR='pacaur'
-        elif [ -e "/usr/bin/yaourt" ]
-        then
-            PKGMGR='yaourt'
-            PKG_OPTS='--aur --devel'
-        elif [ -e "/usr/bin/packer" ]
-        then
-            PKGMGR='packer'
+            PKGMGR='yay'
         else
             PKGMGR='pacman'
         fi
