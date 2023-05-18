@@ -37,6 +37,7 @@ then
         elif [ -e "/usr/bin/aptitude" ]
         then
             PKGMGR='aptitude'
+            PKG_OPTS='--full-resolver'
         else
             PKGMGR='apt-get'
         fi
